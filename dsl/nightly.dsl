@@ -1,4 +1,3 @@
-# Nightly jobs
 
 def gitUrl = 'https://github.com/joeych18/tf-openlab-ci.git'
 
