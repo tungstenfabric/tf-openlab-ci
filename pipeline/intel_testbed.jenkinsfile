@@ -1,0 +1,44 @@
+pipeline {
+    agent none
+    
+    environment {
+        CI_DIR = "/root/intel_tf_ci"
+        TESTSUITE_DIR = "/root/tf_test_suite"
+    }
+    
+    stages {
+       
+        stage('Build') {
+            agent {
+                label 'builder'
+            }
+            
+            steps {
+               echo '${CI_DIR}'
+               sh '${CI_DIR}/build.sh'
+               stash includes: "build_info.log", name: "build_info"
+               stash includes: "contrail-vrouter-dpdk", name: "vrouter"
+            }
+            
+        }
+        
+        stage('Test') {
+            agent {
+                label 'tester'
+            }
+            steps {
+                echo "${TESTSUITE_DIR}"
+                unstash "build_info"
+                unstash "vrouter"
+                sh "cat build_info.log"
+                sh "python -u ${TESTSUITE_DIR}/perf_test.py"
+            }
+            post {
+                always {
+                    perfpublisher(name:"perf_pmd.xml,perf_iperf.xml",threshold:"",healthy:"",unhealthy:"",metrics:"")
+                    cleanWs()
+                }
+            }
+        }
+    }
+}
