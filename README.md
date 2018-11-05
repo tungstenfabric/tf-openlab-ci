@@ -11,6 +11,13 @@ Jenkins configuration for Tungsten Fabric OpenLab test automation
 **Performance Publisher plugin**, https://wiki.jenkins.io/display/JENKINS/PerfPublisher+Plugin
 
 
-# Directry structure
+# Directory structure
+├── dsl
+│   ├── all.dsl
+│   └── nightly.dsl
+├── LICENSE
+├── pipeline
+│   └── intel_testbed.jenkinsfile
+└── README.md
 
 # Workflow
