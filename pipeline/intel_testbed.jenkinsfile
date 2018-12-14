@@ -31,7 +31,7 @@ pipeline {
                 unstash "build_info"
                 unstash "vrouter"
                 sh "cat build_info.log"
-                sh "python -u ${TESTSUITE_DIR}/perf_test.py"
+                sh "python ${TESTSUITE_DIR}/perf_test.py"
             }
             post {
                 always {
