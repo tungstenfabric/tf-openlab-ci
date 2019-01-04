@@ -13,11 +13,21 @@ Jenkins configuration for Tungsten Fabric OpenLab test automation
 
 # Directory structure
 ├── dsl
-│   ├── all.dsl
-│   └── nightly.dsl
+
+│   ├── all.dsl
+
+│   └── nightly.dsl
+
+│   └── weekly.dsl
+
+│   └── smoke.dsl
+
 ├── LICENSE
+
 ├── pipeline
+
 │   └── intel_testbed.jenkinsfile
+
 └── README.md
 
 # Workflow
