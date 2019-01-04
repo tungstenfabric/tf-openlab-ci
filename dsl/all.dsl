@@ -44,7 +44,7 @@ job('weekly_seed') {
   
     steps {
       dsl {
-        external("./DSL/weekly.dsl")
+        external("./dsl/weekly.dsl")
         removeAction("IGNORE")
         ignoreExisting(false)
       }
@@ -70,7 +70,7 @@ job('release_seed') {
   
     steps {
       dsl {
-        external("./DSL/release.dsl")
+        external("./dsl/release.dsl")
         removeAction("IGNORE")
         ignoreExisting(false)
       }
@@ -96,7 +96,7 @@ job('smoke_seed') {
   
     steps {
       dsl {
-        external("./DSL/smoke.dsl")
+        external("./dsl/smoke.dsl")
         removeAction("IGNORE")
         ignoreExisting(false)
       }
