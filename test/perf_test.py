@@ -96,7 +96,8 @@ class TFVPPVTestCase(unittest.TestCase):
         sftp.put(vrouter_path, './contrail-vrouter-dpdk-ci')
         sftp.chmod('./contrail-vrouter-dpdk-ci', 755)
         print "Start to update vrouter binary" 
-        # TODO: If porting this case to ohter platform, please change the core numbers '10-17' in the command line. 
+        # TODO: Replace hardcoded core numbers ("10-17" in the command below) with input from a config file or environment
+        # in order to support hardware platforms with different CPU core topologies
         stdin, stdout, stderr = node_client.exec_command("./change_vrouter_cores.sh contrail-vrouter-dpdk-ci 10-17", timeout=120)
         for line in stdout.readlines():
             print line
