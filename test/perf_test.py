@@ -28,8 +28,10 @@ server_list = {
 
 test_VMs = ["VM2","VM3"]
 
-# This test suite is for measurement the throughput of the traffic from VM(virtual machine) <-> Physical NIC <-> Physical NIC <-> VM topology
+
 class TFVPPVTestCase(unittest.TestCase):
+    """Test throughput in VM(virtual machine) <-> Physical NIC <-> Physical NIC <-> VM (VPPV) topology
+    """
 
     def _get_VMs_list(self, controller_client):
         stdin, stdout, stderr = controller_client.exec_command("nova list", timeout=30)
@@ -161,8 +163,10 @@ class TFVPPVTestCase(unittest.TestCase):
                     print "Launch VM failure, vm=" + vm["name"]
                     raise BaseException("Launch VM failure, vm=" + vm["name"])
 
-    # The Virtual ports are drived by PMD(polling mode driver)
+
     def testPMDThroughput(self):
+        """Test DPDK PMD(polling mode driver) using TREX traffic generator https://trex-tgn.cisco.com/
+        """
         print "PMD Throughput"
         try:
             chnn_trex = self.__srv_node1.invoke_shell()
@@ -235,8 +239,9 @@ class TFVPPVTestCase(unittest.TestCase):
             chnn_testpmd.close()
             chnn_trex.close()
 
-    # The test case is use iperf tool for testing, and virtio ports are running by kernel mode
     def testiPerfTCPThroughput(self):
+        """Test virtio throughput (kernel vRouter) using iperf traffic generator https://iperf.fr/
+        """
         print "iPerf TCP Throughput"
         try:
             chnn_srv = self.__srv_node1.invoke_shell()
