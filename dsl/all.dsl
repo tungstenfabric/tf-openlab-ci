@@ -1,5 +1,5 @@
 
-def gitUrl = 'https://github.com/joeych18/tf-openlab-ci.git'
+def gitUrl = 'https://github.com/tungstenfabric/tf-openlab-ci.git'
 
 job('nightly_seed') {
     scm {
