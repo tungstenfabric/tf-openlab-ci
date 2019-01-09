@@ -28,7 +28,7 @@ server_list = {
 
 test_VMs = ["VM2","VM3"]
 
-
+# This test suite is for measurement the throughput of the traffic from VM(virtual machine) <-> Physical NIC <-> Physical NIC <-> VM topology
 class TFVPPVTestCase(unittest.TestCase):
 
     def _get_VMs_list(self, controller_client):
@@ -160,7 +160,7 @@ class TFVPPVTestCase(unittest.TestCase):
                     print "Launch VM failure, vm=" + vm["name"]
                     raise BaseException("Launch VM failure, vm=" + vm["name"])
 
-
+    # The Virtual ports are drived by PMD(polling mode driver)
     def testPMDThroughput(self):
         print "PMD Throughput"
         try:
@@ -234,7 +234,7 @@ class TFVPPVTestCase(unittest.TestCase):
             chnn_testpmd.close()
             chnn_trex.close()
 
-
+    # The test case is use iperf tool for testing, and virtio ports are running by kernel mode
     def testiPerfTCPThroughput(self):
         print "iPerf TCP Throughput"
         try:
