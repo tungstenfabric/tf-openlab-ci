@@ -12,38 +12,12 @@ Jenkins configuration for Tungsten Fabric OpenLab test automation
 
 
 # Directory structure
-├── dsl
-
-│   ├── all.dsl
-
-│   └── nightly.dsl
-
-│   └── weekly.dsl
-
-│   └── smoke.dsl
-
+├── build    - Scripts to build and install the vRouter on the VMs used in perf testing
+├── dsl      - Jenkins job triggers
+├── pipeline - Jenkins job pipeline specification
+├── test     - Tests to be run
+├── images   - Any images required in order to setup test environment
 ├── LICENSE
-
-├── pipeline
-
-│   └── intel_testbed.jenkinsfile
-
-├── build
-
-│   └── build.sh
-
-├── test
-
-│   └── intel
-
-|   │   └── perf_test.py
-
-├── images
-
-│   └── intel
-
-|   │   └── ubuntu1604_trex.parker_script (WIP)
-
 └── README.md
 
 
