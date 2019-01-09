@@ -1,5 +1,5 @@
 
-def ciUrl =  'https://github.com/joeych18/tf-openlab-ci.git'
+def ciUrl =  'https://github.com/tungstenfabric/tf-openlab-ci.git'
 def vrouterUrl = 'https://github.com/Juniper/contrail-vrouter.git'
 
 pipelineJob('weekly_intel_testbed') {
