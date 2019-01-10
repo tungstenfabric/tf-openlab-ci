@@ -19,7 +19,14 @@ pipelineJob('smoke_intel_testbed') {
     definition {
         cpsScm {
             scm {
-                git(ciUrl)
+                git {
+                    remote {
+                        url(vrouterUrl)
+                        name("origin")
+                    }
+                    branch("*/R5.0")
+                    extensions { }
+                }
             }
             scriptPath("./pipeline/intel_testbed.jenkinsfile")
         }
