@@ -22,10 +22,10 @@ pipelineJob('weekly_intel_testbed') {
             scm {
                 git {
                     remote {
-                        url(vrouterUrl)
+                        url(ciUrl)
                         name("origin")
                     }
-                    branch("*/R5.0")
+                    branch("*/master")
                     extensions { }
                 }
             }
