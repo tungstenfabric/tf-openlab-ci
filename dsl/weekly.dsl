@@ -20,7 +20,14 @@ pipelineJob('weekly_intel_testbed') {
     definition {
         cpsScm {
             scm {
-                git(ciUrl)
+                git {
+                    remote {
+                        url(ciUrl)
+                        name("origin")
+                    }
+                    branch("*/master")
+                    extensions { }
+                }
             }
             scriptPath("./pipeline/intel_testbed.jenkinsfile")
         }
